@@ -328,21 +328,32 @@ function App() {
               }
             ].map((step, index) => (
               <div key={index} className="text-center group">
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center text-black font-bold text-2xl mb-4">
+                <div className="relative mb-8">
+                  {/* Step Number Circle */}
+                  <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center text-black font-bold text-xl mb-4 shadow-lg">
                     {step.step}
                   </div>
-                  <div className="text-yellow-400 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                  
+                  {/* Icon */}
+                  <div className="w-12 h-12 mx-auto rounded-xl bg-gray-800/50 border border-gray-700/50 flex items-center justify-center text-yellow-400 group-hover:scale-110 group-hover:border-yellow-400/50 transition-all duration-300">
                     {step.icon}
                   </div>
+                  
+                  {/* Arrow for desktop */}
                   {index < 2 && (
-                    <div className="hidden md:block absolute top-10 left-full w-full">
-                      <ArrowRight className="h-6 w-6 text-gray-600 mx-auto" />
+                    <div className="hidden md:block absolute top-8 left-full w-full h-0 flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-full bg-gray-800/30 border border-gray-700/50 flex items-center justify-center">
+                        <ArrowRight className="h-4 w-4 text-gray-500" />
+                      </div>
                     </div>
                   )}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-gray-400">{step.description}</p>
+                
+                {/* Content */}
+                <div className="space-y-3">
+                  <h3 className="text-xl font-semibold group-hover:text-yellow-400 transition-colors duration-300">{step.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{step.description}</p>
+                </div>
               </div>
             ))}
           </div>
