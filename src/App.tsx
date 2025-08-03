@@ -329,28 +329,32 @@ function App() {
             ].map((step, index) => (
               <div key={index} className="text-center group">
                 <div className="relative mb-8">
-                  {/* Step Number Circle */}
-                  <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center text-black font-bold text-xl mb-4 shadow-lg">
-                    {step.step}
+                  {/* Step Number Circle - Larger and more prominent */}
+                  <div className="relative w-20 h-20 mx-auto mb-6">
+                    <div className="w-full h-full rounded-full bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 flex items-center justify-center shadow-xl shadow-yellow-400/25 group-hover:scale-110 transition-all duration-300">
+                      <span className="text-black font-black text-2xl tracking-tight">{step.step}</span>
+                    </div>
+                    {/* Subtle glow effect */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 opacity-20 blur-xl -z-10"></div>
                   </div>
                   
-                  {/* Icon */}
-                  <div className="w-12 h-12 mx-auto rounded-xl bg-gray-800/50 border border-gray-700/50 flex items-center justify-center text-yellow-400 group-hover:scale-110 group-hover:border-yellow-400/50 transition-all duration-300">
+                  {/* Icon Container */}
+                  <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700/50 flex items-center justify-center text-yellow-400 group-hover:scale-105 group-hover:border-yellow-400/50 group-hover:shadow-lg group-hover:shadow-yellow-400/20 transition-all duration-300">
                     {step.icon}
                   </div>
                   
                   {/* Arrow for desktop */}
                   {index < 2 && (
-                    <div className="hidden md:block absolute top-8 left-full w-full h-0 flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-gray-800/30 border border-gray-700/50 flex items-center justify-center">
-                        <ArrowRight className="h-4 w-4 text-gray-500" />
+                    <div className="hidden md:block absolute top-10 left-full w-full h-0 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600/50 flex items-center justify-center shadow-lg">
+                        <ArrowRight className="h-5 w-5 text-yellow-400/70" />
                       </div>
                     </div>
                   )}
                 </div>
                 
                 {/* Content */}
-                <div className="space-y-3">
+                <div className="space-y-4 mt-6">
                   <h3 className="text-xl font-semibold group-hover:text-yellow-400 transition-colors duration-300">{step.title}</h3>
                   <p className="text-gray-400 leading-relaxed">{step.description}</p>
                 </div>
